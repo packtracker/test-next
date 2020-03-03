@@ -5,10 +5,11 @@ jobs:
     name: report
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
       - name: Run next.js build
         env:
           PT_PROJECT_TOKEN: ${{ secrets.PT_PROJECT_TOKEN }}
         run: |
-          apt-get update && apt-get install git yarn -y && rm -rf /var/lib/apt/lists/*
+          sudo apt-get update && sudo apt-get install git yarn -y && sudo rm -rf /var/lib/apt/lists/*
           yarn
           yarn build
