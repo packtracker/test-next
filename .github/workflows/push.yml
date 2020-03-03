@@ -1,0 +1,12 @@
+name: Report to packtracker.io
+on: [push]
+jobs:
+  build:
+    name: report
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run next.js build
+        uses: node:12-slim
+        run: |
+          yarn
+          yarn build
